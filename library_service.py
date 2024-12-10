@@ -7,13 +7,16 @@ class LibraryService:
     
     _instance = None
     
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(LibraryService, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+    
     def __init__(self):
         self.books: Dict[str, Book] = {}
         self.users: Dict[str, User] = {}
-        if LibraryService._instance is not None:
-            LibraryService._instance = self
-        
-        return LibraryService._instance
 
     def add_users(self, user: User):
         self.users[user.get_user_id()] = user

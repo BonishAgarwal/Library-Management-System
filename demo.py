@@ -7,6 +7,11 @@ from users import User
 def main():
 
     library_service = LibraryService()
+    library_service1 = LibraryService()
+    
+    print(library_service)
+    print(library_service1)
+    
     
     user1 = User("1", "bonish", "123456")
     user2 = User("2", "tanuja", "123456")
