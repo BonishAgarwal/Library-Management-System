@@ -6,7 +6,8 @@ class Book:
         self.title = title
         self.category = category
         self.is_available = True
-        self.issued_by = user_id
+        
+        # We don't need to map User object here as who has issues this book is not actually necessary
 
     def get_book_id(self):
         return self.book_id
@@ -20,10 +21,8 @@ class Book:
     def is_book_available(self):
         return self.is_available == True
 
-    def assign_user(self, user_id: str):
-        self.issued_by = user_id
+    def assign_user(self):
         self.is_available = False
 
     def unassign_user(self):
-        self.issued_by = None
         self.is_available = True

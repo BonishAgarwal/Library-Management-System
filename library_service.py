@@ -29,7 +29,7 @@ class LibraryService:
     
     def assign_book(self, book: Book, user: User):
         if book.is_book_available() and user.get_number_of_issued_books() < 5:
-            book.assign_user(user.get_user_id())
+            book.assign_user()
             
             user.add_books(book)
         else:
